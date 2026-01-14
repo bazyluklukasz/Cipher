@@ -6,17 +6,22 @@ class Buffer:
         self.data = []
 
 
-    def add(self, text : TextModel):
+    def add(self, text: TextModel):
         self.data.append(text)
         print("Dodano do buffera")
 
     def show(self):
-        for idx, ele in enumerate(self.data):
-            print(f'index : {idx}, elementy: {ele}')
+        if self.data :
+
+            for idx, ele in enumerate(self.data, start=1):
+                print(f'{idx}. {ele}')
+        else:
+            print("Bufer jest Pusty")
 
     def clear(self):
         self.data.clear()
         print("Buffer zostal wyczyszczony")
+
 
 
 

@@ -1,9 +1,9 @@
 from .rot13 import Rot13
 from .rot47 import Rot47
-from .RotCipher import RotCipher
+from .rotCipher import RotCipher
 
-class FactoryCipher():
-
+class FactoryCipher:
+    AVAILABLE_ROT_CIPHERS = ['rot13', 'rot47']
 
     @staticmethod
     def create_cipher(rot_cipher : str) -> RotCipher:

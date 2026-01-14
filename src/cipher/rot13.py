@@ -1,5 +1,5 @@
 import codecs
-from .RotCipher import RotCipher
+from .rotCipher import RotCipher
 
 class Rot13(RotCipher):
 

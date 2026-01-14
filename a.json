@@ -1,22 +1,12 @@
 [
     {
-        "text": "xhcn",
+        "text": "qhcn",
         "rot_type": "rot13",
         "status": "encrypted"
     },
     {
         "text": "<FA2",
         "rot_type": "rot47",
-        "status": "encrypted"
-    },
-    {
-        "text": "wfuqswonfqs",
-        "rot_type": "rot13",
-        "status": "encrypted"
-    },
-    {
-        "text": "xnfq",
-        "rot_type": "rot13",
         "status": "encrypted"
     }
 ]
