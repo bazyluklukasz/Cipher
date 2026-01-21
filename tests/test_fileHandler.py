@@ -24,6 +24,8 @@ class TestFileHandler:
         assert load_file[0].rot_type == "rot13"
         assert load_file[0].status == "decrypted"
 
+#test
+
     def test_save_all(self):
         handler = FileHandler()
         test_obj = [TextModel(text="test1", rot_type="rot13", status="decrypted")]
