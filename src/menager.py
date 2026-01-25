@@ -1,8 +1,16 @@
 from src.text_model import TextModel
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from src.buffer import Buffer
+    from src.file_handler import FileHandler
+    from src.menu import Menu
+    from src.cipher.factory_cipher import FactoryCipher
+
 
 
 class Manager:
-    def __init__(self, menu, factory_cipher, file_handler, buffer):
+    def __init__(self, menu: 'Menu', factory_cipher: 'FactoryCipher', file_handler: 'FileHandler', buffer: 'Buffer'):
         self.menu = menu
         self.factory_cipher = factory_cipher
         self.file_handler = file_handler
@@ -18,7 +26,7 @@ class Manager:
             0: self.exit,
         }
 
-    def encode(self):
+    def encode(self) -> None:
         while True:
             choice_cipher = input("Jaki rot rot13 czy rot47? : ")
             if choice_cipher in self.factory_cipher.AVAILABLE_ROT_CIPHERS:
@@ -34,7 +42,7 @@ class Manager:
         print("Pomyslnie dodano do buffera")
 
 
-    def uncode(self):
+    def uncode(self) -> None:
         while True:
             rot_type = input("Jaki rot: rot13 czy rot47: ")
             if rot_type in ['rot13', 'rot47']:
@@ -46,7 +54,7 @@ class Manager:
         self.buffer.add(TextModel(text=decode_text, rot_type=f"{rot_type}", status="decrypted"))
         print("Pomyslnie dodano do buffera")
 
-    def save(self):
+    def save(self) -> None:
         user_choice = int(input("\n1.Zapisac  \n2.Dodac do pliku? \nCo chcesz zrobic: "))
         if user_choice == 1:
             self.file_handler.save_all(self.buffer.data)
@@ -57,20 +65,20 @@ class Manager:
         else:
             print("Niepoprawne, powrót do menu głównego.")
 
-    def show_buffer(self):
+    def show_buffer(self) -> None:
         self.buffer.show()
 
-    def clear(self):
+    def clear(self) -> None:
         self.buffer.clear()
 
-    def load_buffer(self):
-        self.buffer.add(self.file_handler.load_json())
+    def load_buffer(self) -> None:
+        self.buffer.add_multiple(self.file_handler.load_json())
         print("Zapisano do buffera.")
 
-    def exit(self):
+    def exit(self) -> None:
         exit()
 
-    def start(self):
+    def start(self) -> None:
         try:
             while True:
 

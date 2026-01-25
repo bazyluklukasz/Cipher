@@ -1,6 +1,6 @@
 class Menu:
-    def __init__(self):
-        self.options: dict[int, str] = {
+    def __init__(self) -> None:
+        self.options = {
             1: "Zakoduj",
             2: "Odkoduj",
             3: "Zapisz",

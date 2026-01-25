@@ -5,7 +5,7 @@ from src.menu import Menu
 from src.menager import Manager
 
 
-def main():
+def main() -> None:
     menu = Menu()
     factory_cipher = FactoryCipher()
     file_handler = FileHandler()

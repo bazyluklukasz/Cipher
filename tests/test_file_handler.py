@@ -2,7 +2,7 @@ import tempfile
 from unittest.mock import patch
 
 from src.file_handler import FileHandler
-from text_model import TextModel
+from src.text_model import TextModel
 
 
 class TestFileHandler:

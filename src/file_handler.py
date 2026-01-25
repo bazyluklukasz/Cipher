@@ -6,7 +6,7 @@ from src.text_model import TextModel
 
 
 class FileHandler:
-    def save_all(self, objects: list[TextModel]):
+    def save_all(self, objects: list[TextModel]) -> None:
         file_name = input("Podaj nazwe pliku: ")
         try:
             data = {"data": [obj.to_dict() for obj in objects]}
@@ -18,7 +18,7 @@ class FileHandler:
 
 
 
-    def load_json(self):
+    def load_json(self) -> list[TextModel]:
         file_name = input("Podaj pliku do wczytania: ")
         try:
             with open(file_name, "r") as file:
@@ -36,7 +36,7 @@ class FileHandler:
 
 
 
-    def append_json(self, objects: list[TextModel]) :
+    def append_json(self, objects: list[TextModel]) -> None:
         file_name = input("Podaj nazwe pliku do dodania: ")
         try:
             with open(file_name, "r") as file:
