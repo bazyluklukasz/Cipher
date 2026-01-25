@@ -2,7 +2,7 @@ import tempfile
 from unittest.mock import patch
 
 from src.file_handler import FileHandler
-from textModel import TextModel
+from text_model import TextModel
 
 
 class TestFileHandler:
@@ -10,7 +10,6 @@ class TestFileHandler:
     def test_load_json(self):
         handler = FileHandler()
         test_obj = [TextModel(text="test", rot_type="rot13", status="decrypted")]
-        test_obj2 = [TextModel(text="test", rot_type="rot13", status="decrypted")]
 
         with tempfile.NamedTemporaryFile(suffix=".json") as temp:
             with patch("builtins.input", return_value=temp.name):
@@ -19,8 +18,8 @@ class TestFileHandler:
             with patch("builtins.input", return_value=temp.name):
                 load_file = handler.load_json()
 
-        assert  len(load_file) == 1
-        assert  load_file[0].text == "test"
+        assert len(load_file) == 1
+        assert load_file[0].text == "test"
         assert load_file[0].rot_type == "rot13"
         assert load_file[0].status == "decrypted"
 
@@ -48,8 +47,8 @@ class TestFileHandler:
 
     def test_append(self):
         handler = FileHandler()
-        test_obj1 = [TextModel(text="test1", rot_type="rot131", status="decrypted")]
-        test_obj2 = [TextModel(text="test2", rot_type="rot132", status="decrypted")]
+        test_obj1 = [TextModel(text="test1", rot_type="rot13", status="decrypted")]
+        test_obj2 = [TextModel(text="test2", rot_type="rot47", status="decrypted")]
 
         with tempfile.NamedTemporaryFile(suffix=".json") as temp:
             with patch("builtins.input", return_value=temp.name):

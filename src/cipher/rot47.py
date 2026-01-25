@@ -1,4 +1,4 @@
-from .rotCipher import RotCipher
+from .rot_cipher import RotCipher
 
 class Rot47(RotCipher):
     def encode(self, text: str) -> str:

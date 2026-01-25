@@ -1,4 +1,4 @@
-from src.textModel import TextModel
+from src.text_model import TextModel
 
 
 class Manager:

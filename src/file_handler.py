@@ -2,7 +2,7 @@ import json
 from json import JSONDecodeError
 from sqlite3 import DataError
 
-from src.textModel import TextModel
+from src.text_model import TextModel
 
 
 class FileHandler:

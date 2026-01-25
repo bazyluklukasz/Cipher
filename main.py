@@ -1,5 +1,5 @@
 from src.buffer import Buffer
-from src.cipher.factoryCipher import FactoryCipher
+from src.cipher.factory_cipher import FactoryCipher
 from src.file_handler import FileHandler
 from src.menu import Menu
 from src.menager import Manager

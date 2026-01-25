@@ -1,6 +1,6 @@
 from .rot13 import Rot13
 from .rot47 import Rot47
-from .rotCipher import RotCipher
+from .rot_cipher import RotCipher
 
 class FactoryCipher:
     AVAILABLE_ROT_CIPHERS = ['rot13', 'rot47']

@@ -1,4 +1,4 @@
-from src.cipher.rotCipher import RotCipher
+from src.cipher.rot_cipher import RotCipher
 
 
 class DummyRotCipher(RotCipher):

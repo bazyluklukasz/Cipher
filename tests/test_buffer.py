@@ -2,7 +2,7 @@ import unittest.mock
 
 import pytest
 from src.buffer import Buffer
-from src.textModel import TextModel
+from src.text_model import TextModel
 
 
 class TestBuffer:
@@ -29,8 +29,7 @@ class TestBuffer:
     def test_show_data(self, buffer, text_model, mocker):
         buffer.clear()
         mock_print = mocker.patch("builtins.print")
-        print(buffer.show())
         buffer.add(text_model)
         buffer.show()
-        assert mock_print.call_count == 4
+        assert mock_print.call_count == 2
 

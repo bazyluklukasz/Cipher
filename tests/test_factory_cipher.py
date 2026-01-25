@@ -1,6 +1,6 @@
 import pytest
 
-from cipher.factoryCipher import FactoryCipher
+from cipher.factory_cipher import FactoryCipher
 from cipher.rot13 import Rot13
 from cipher.rot47 import Rot47
 

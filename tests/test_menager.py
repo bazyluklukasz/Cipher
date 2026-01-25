@@ -4,13 +4,12 @@ from unittest.mock import patch
 import pytest
 import buffer
 from buffer import Buffer
-from cipher.factoryCipher import FactoryCipher
+from cipher.factory_cipher import FactoryCipher
 from menu import Menu
 from src.menager import Manager
 
 
 class TestManager:
-
     def setup_method(self):
         self.mock_menu = mock.Mock()
         self.mock_factory = mock.Mock()

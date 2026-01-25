@@ -1,4 +1,4 @@
-from src.textModel import TextModel
+from src.text_model import TextModel
 
 
 class Buffer:
@@ -12,7 +12,6 @@ class Buffer:
 
     def show(self):
         if self.data :
-
             for idx, ele in enumerate(self.data, start=1):
                 print(f'{idx}. {ele}')
                 return True
