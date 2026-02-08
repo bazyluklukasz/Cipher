@@ -2,7 +2,6 @@ from src.cipher.rot_cipher import RotCipher
 
 
 class DummyRotCipher(RotCipher):
-
     def encode(self, text: str) -> str:
         return text
 
@@ -11,7 +10,6 @@ class DummyRotCipher(RotCipher):
 
 
 class TestRotCipher:
-
     def test_encode(self):
         cipher = DummyRotCipher()
 

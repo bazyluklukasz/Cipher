@@ -6,7 +6,6 @@ from src.text_model import TextModel
 
 
 class TestFileHandler:
-
     def test_load_json(self):
         handler = FileHandler()
         test_obj = [TextModel(text="test", rot_type="rot13", status="decrypted")]
@@ -23,7 +22,7 @@ class TestFileHandler:
         assert load_file[0].rot_type == "rot13"
         assert load_file[0].status == "decrypted"
 
-#test
+    # test
 
     def test_save_all(self):
         handler = FileHandler()
@@ -39,11 +38,9 @@ class TestFileHandler:
             with patch("builtins.input", return_value=temp.name):
                 load = handler.load_json()
 
-
         assert len(load) == 3
         assert load[1].text == "test2"
         assert load[2].status == "decrypted"
-
 
     def test_append(self):
         handler = FileHandler()
@@ -57,10 +54,8 @@ class TestFileHandler:
             with patch("builtins.input", return_value=temp.name):
                 handler.append_json(test_obj2)
 
-
             with patch("builtins.input", return_value=temp.name):
                 load = handler.load_json()
-
 
             assert len(load) == 2
             assert load[1].text == "test2"

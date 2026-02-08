@@ -1,6 +1,5 @@
-import unittest.mock
-
 import pytest
+
 from src.buffer import Buffer
 from src.text_model import TextModel
 
@@ -25,11 +24,9 @@ class TestBuffer:
         assert len(buffer.data) == 0
         assert (text_model in buffer.data) is False
 
-
     def test_show_data(self, buffer, text_model, mocker):
         buffer.clear()
         mock_print = mocker.patch("builtins.print")
         buffer.add(text_model)
         buffer.show()
         assert mock_print.call_count == 2
-

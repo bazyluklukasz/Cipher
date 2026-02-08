@@ -6,7 +6,6 @@ from cipher.rot47 import Rot47
 
 
 class TestFactoryCipher:
-
     def test_rot13(self):
         create = FactoryCipher()
         result = create.create_cipher("rot13")

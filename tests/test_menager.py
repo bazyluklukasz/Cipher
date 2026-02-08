@@ -1,11 +1,6 @@
 from unittest import mock
 from unittest.mock import patch
 
-import pytest
-import buffer
-from buffer import Buffer
-from cipher.factory_cipher import FactoryCipher
-from menu import Menu
 from src.menager import Manager
 
 
@@ -23,7 +18,7 @@ class TestManager:
             self.mock_buffer,
         )
 
-    @patch('builtins.input', side_effect=["rot13", "text do kodowania"])
+    @patch("builtins.input", side_effect=["rot13", "text do kodowania"])
     def test_encode(self, mock_input):
         mock_cipher = mock.Mock()
         mock_cipher.encode.return_value = "text do kodowania"
@@ -41,7 +36,7 @@ class TestManager:
         assert added_obj.rot_type == "rot13"
         assert added_obj.status == "encrypted"
 
-    @patch('builtins.input', side_effect=["rot47", "text do odkodowania"])
+    @patch("builtins.input", side_effect=["rot47", "text do odkodowania"])
     def test_decode(self, mock_input):
         mock_cipher = mock.Mock()
         mock_cipher.decode.return_value = "text do odkodowania"
@@ -59,18 +54,26 @@ class TestManager:
         assert add_obj.rot_type == "rot47"
         assert add_obj.status == "decrypted"
 
-    @patch('builtins.input', side_effect=["1"])
+    @patch("builtins.input", side_effect=["1"])
     def test_save_all(self, mock_input):
-        test_data = {"text": "text do buffer", "rot_type": "rot13", "status": "encrypted"}
+        test_data = {
+            "text": "text do buffer",
+            "rot_type": "rot13",
+            "status": "encrypted",
+        }
         self.mock_buffer.data = test_data
 
         self.manager.save()
 
         self.file_handler.save_all.assert_called_with(test_data)
 
-    @patch('builtins.input', side_effect=["2"])
+    @patch("builtins.input", side_effect=["2"])
     def test_save_append(self, mock_input):
-        test_data = {"text": "text do buffer", "rot_type": "rot13", "status": "encrypted"}
+        test_data = {
+            "text": "text do buffer",
+            "rot_type": "rot13",
+            "status": "encrypted",
+        }
         self.mock_buffer.data = test_data
 
         self.manager.save()
@@ -88,12 +91,13 @@ class TestManager:
         self.mock_buffer.clear.assert_called_once()
 
     def test_load_buffer(self):
-        test_data = {"text": "text do buffer", "rot_type": "rot13", "status": "encrypted"}
+        test_data = {
+            "text": "text do buffer",
+            "rot_type": "rot13",
+            "status": "encrypted",
+        }
         self.file_handler.load_json.return_value = test_data
 
         self.manager.load_buffer()
 
         self.mock_buffer.add.assert_called_with(test_data)
-
-
-

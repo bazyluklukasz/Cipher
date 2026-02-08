@@ -1,5 +1,6 @@
 from .rot_cipher import RotCipher
 
+
 class Rot47(RotCipher):
     def encode(self, text: str) -> str:
         result = []
@@ -13,8 +14,7 @@ class Rot47(RotCipher):
             else:
                 result.append(char)
 
-        return ''.join(result)
+        return "".join(result)
 
     def decode(self, text: str) -> str:
-
         return self.encode(text)

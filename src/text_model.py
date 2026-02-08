@@ -1,4 +1,4 @@
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 
 
 @dataclass
@@ -6,7 +6,6 @@ class TextModel:
     text: str
     rot_type: str
     status: str
-
 
     def to_dict(self) -> dict[str, str]:
         return asdict(self)

@@ -2,8 +2,6 @@ from abc import ABC, abstractmethod
 
 
 class RotCipher(ABC):
-
-
     @abstractmethod
     def encode(self, text: str) -> str:
         pass

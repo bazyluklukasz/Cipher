@@ -1,16 +1,22 @@
-from src.text_model import TextModel
 from typing import TYPE_CHECKING
+
+from src.text_model import TextModel
 
 if TYPE_CHECKING:
     from src.buffer import Buffer
+    from src.cipher.factory_cipher import FactoryCipher
     from src.file_handler import FileHandler
     from src.menu import Menu
-    from src.cipher.factory_cipher import FactoryCipher
-
 
 
 class Manager:
-    def __init__(self, menu: 'Menu', factory_cipher: 'FactoryCipher', file_handler: 'FileHandler', buffer: 'Buffer'):
+    def __init__(
+        self,
+        menu: "Menu",
+        factory_cipher: "FactoryCipher",
+        file_handler: "FileHandler",
+        buffer: "Buffer",
+    ):
         self.menu = menu
         self.factory_cipher = factory_cipher
         self.file_handler = file_handler
@@ -37,31 +43,36 @@ class Manager:
         user_text = input("Podaj text do kodowania: ")
         encode_text = cip.encode(user_text)
 
-        self.buffer.add(TextModel(text=encode_text, rot_type=choice_cipher, status="encrypted"))
+        self.buffer.add(
+            TextModel(text=encode_text, rot_type=choice_cipher, status="encrypted")
+        )
 
         print("Pomyslnie dodano do buffera")
-
 
     def uncode(self) -> None:
         while True:
             rot_type = input("Jaki rot: rot13 czy rot47: ")
-            if rot_type in ['rot13', 'rot47']:
+            if rot_type in ["rot13", "rot47"]:
                 break
             print("Blad!!!!, mozesz wybrac rot13 albo rot47")
         cip = self.factory_cipher.create_cipher(f"{rot_type}")
         user_text = input("Podaj text do odkodowania: ")
         decode_text = cip.decode(user_text)
-        self.buffer.add(TextModel(text=decode_text, rot_type=f"{rot_type}", status="decrypted"))
+        self.buffer.add(
+            TextModel(text=decode_text, rot_type=f"{rot_type}", status="decrypted")
+        )
         print("Pomyslnie dodano do buffera")
 
     def save(self) -> None:
-        user_choice = int(input("\n1.Zapisac  \n2.Dodac do pliku? \nCo chcesz zrobic: "))
+        user_choice = int(
+            input("\n1.Zapisac  \n2.Dodac do pliku? \nCo chcesz zrobic: ")
+        )
         if user_choice == 1:
             self.file_handler.save_all(self.buffer.data)
             print("Zapisano do pliku.")
         elif user_choice == 2:
             self.file_handler.append_json(self.buffer.data)
-            print('Dodano do pliku.')
+            print("Dodano do pliku.")
         else:
             print("Niepoprawne, powrót do menu głównego.")
 
@@ -81,7 +92,6 @@ class Manager:
     def start(self) -> None:
         try:
             while True:
-
                 self.menu.show_menu()
                 user_input = int(input("Co chcesz zrobic ?:"))
                 if user_input in self.options:

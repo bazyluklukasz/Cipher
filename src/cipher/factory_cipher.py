@@ -2,11 +2,12 @@ from .rot13 import Rot13
 from .rot47 import Rot47
 from .rot_cipher import RotCipher
 
+
 class FactoryCipher:
-    AVAILABLE_ROT_CIPHERS = ['rot13', 'rot47']
+    AVAILABLE_ROT_CIPHERS = ["rot13", "rot47"]
 
     @staticmethod
-    def create_cipher(rot_cipher : str) -> RotCipher:
+    def create_cipher(rot_cipher: str) -> RotCipher:
         rot_cipher = rot_cipher.lower()
 
         if rot_cipher == "rot13":

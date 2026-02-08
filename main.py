@@ -1,8 +1,8 @@
 from src.buffer import Buffer
 from src.cipher.factory_cipher import FactoryCipher
 from src.file_handler import FileHandler
-from src.menu import Menu
 from src.menager import Manager
+from src.menu import Menu
 
 
 def main() -> None:
@@ -14,5 +14,5 @@ def main() -> None:
     mg.start()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
