@@ -1,8 +1,8 @@
 import pytest
 
-from cipher.factory_cipher import FactoryCipher
-from cipher.rot13 import Rot13
-from cipher.rot47 import Rot47
+from src.cipher.factory_cipher import FactoryCipher
+from src.cipher.rot13 import Rot13
+from src.cipher.rot47 import Rot47
 
 
 class TestFactoryCipher:
