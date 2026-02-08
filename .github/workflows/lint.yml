@@ -33,7 +33,7 @@ jobs:
         run: ruff check src
 
       - name: Run mypy
-        run: run mypy src
+        run: mypy src
         continue-on-error: true
 
       - name: Run bandit
