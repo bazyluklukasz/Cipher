@@ -96,8 +96,8 @@ class TestManager:
             "rot_type": "rot13",
             "status": "encrypted",
         }
-        self.file_handler.load_json.return_value = test_data
+        self.file_handler.load_json.return_value = [test_data]
 
         self.manager.load_buffer()
 
-        self.mock_buffer.add.assert_called_with(test_data)
+        self.mock_buffer.add_multiple.assert_called_with([test_data])
