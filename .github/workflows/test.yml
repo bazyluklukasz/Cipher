@@ -13,7 +13,7 @@ env:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    name: Code Quality & Linting
+    name: Tests
 
 
     steps:
